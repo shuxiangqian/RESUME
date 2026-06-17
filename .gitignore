@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
+
+# Dependencies (if any build tool added later)
+node_modules/
+dist/
+build/

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="[你的名字] - 联系方式">
+  <title>[你的名字] - 联系</title>
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">[名字]</a>
+      <nav class="navbar-menu">
+        <a href="index.html" class="navbar-link" data-i18n="nav.home">首页</a>
+        <a href="resume.html" class="navbar-link" data-i18n="nav.resume">简历</a>
+        <a href="projects.html" class="navbar-link" data-i18n="nav.projects">项目</a>
+        <a href="contact.html" class="navbar-link" data-i18n="nav.contact">联系</a>
+      </nav>
+      <div class="navbar-actions">
+        <button class="lang-btn" aria-label="Switch language">EN</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 页面标题 -->
+    <section class="page-header">
+      <div class="container">
+        <h1 data-i18n="contact.title">联系我</h1>
+        <p data-i18n="contact.subtitle">很高兴与你交流</p>
+      </div>
+    </section>
+
+    <!-- 联系内容 -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- 联系信息 -->
+          <div class="contact-info">
+            <h3 data-i18n="contact.info">联系方式</h3>
+
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <p class="contact-item-label" data-i18n="contact.email">邮箱</p>
+                <p class="contact-item-value">your-email@example.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <p class="contact-item-label" data-i18n="contact.location">所在地</p>
+                <p class="contact-item-value" data-i18n="contact.location.val">中国 · 上海</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <p class="contact-item-label">GitHub</p>
+                <p class="contact-item-value">github.com/your-username</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <p class="contact-item-label">LinkedIn</p>
+                <p class="contact-item-value">linkedin.com/in/your-profile</p>
+              </div>
+            </div>
+
+            <!-- 社交链接 -->
+            <div class="social-links">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="mailto:your-email@example.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <!-- 联系表单 -->
+          <div class="contact-form">
+            <h3 data-i18n="contact.form">发送消息</h3>
+            <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+              <div class="form-group">
+                <label class="form-label" for="formName" data-i18n="contact.form.name">姓名</label>
+                <input type="text" id="formName" name="name" class="form-input"
+                       data-i18n="contact.form.placeholder.name"
+                       placeholder="请输入您的姓名" required>
+                <p class="form-error" id="nameError" data-i18n="contact.form.error">请正确填写所有字段。</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formEmail" data-i18n="contact.form.email">邮箱</label>
+                <input type="email" id="formEmail" name="email" class="form-input"
+                       data-i18n="contact.form.placeholder.email"
+                       placeholder="请输入您的邮箱" required>
+                <p class="form-error" id="emailError" data-i18n="contact.form.error">请正确填写所有字段。</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formMessage" data-i18n="contact.form.msg">留言内容</label>
+                <textarea id="formMessage" name="message" class="form-textarea"
+                          data-i18n="contact.form.placeholder.msg"
+                          placeholder="请输入留言内容..." required></textarea>
+                <p class="form-error" id="msgError" data-i18n="contact.form.error">请正确填写所有字段。</p>
+              </div>
+
+              <div class="form-group" id="formSuccess" style="display:none; color: var(--color-success); font-size: var(--text-sm); margin-bottom: var(--space-4);" data-i18n="contact.form.success">
+                消息已发送成功！
+              </div>
+              <div class="form-group" id="formError" style="display:none; color: var(--color-error); font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                发送失败，请稍后重试。
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%" data-i18n="contact.form.submit">发送</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-social">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:your-email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p data-i18n="footer.copyright">© 2026 [你的名字] · 保留所有权利</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
