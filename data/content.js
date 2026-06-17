@@ -79,6 +79,7 @@ window.CONTENT_DATA = {
   'contact.form.placeholder.msg':   { zh: '请输入留言内容...', en: 'Your message...' },
   'contact.form.success':        { zh: '消息已发送成功！', en: 'Message sent successfully!' },
   'contact.form.error':          { zh: '请正确填写所有字段。', en: 'Please fill in all fields correctly.' },
+  'contact.form.failure':        { zh: '发送失败，请稍后重试。', en: 'Failed to send. Please try again later.' },
 
   /* ===== 页脚 ===== */
   'footer.copyright': { zh: '© 2026 [你的名字] · 保留所有权利', en: '© 2026 [Your Name] · All rights reserved' },

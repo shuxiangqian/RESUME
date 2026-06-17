@@ -12,27 +12,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- 分组配置 --- */
   const GROUPS = [
-    { prefix: ['nav'],       icon: 'fa-bars',         title: '导航菜单' },
-    { prefix: ['hero'],      icon: 'fa-user',          title: '首页 — Hero 区域' },
-    { prefix: ['skills'],    icon: 'fa-chart-bar',     title: '首页 — 技能概览' },
-    { prefix: ['resume'],    icon: 'fa-file-alt',      title: '简历 — 标题区域',
+    { id: 'nav',         prefix: ['nav'],       icon: 'fa-bars',         title: '导航菜单' },
+    { id: 'hero',        prefix: ['hero'],      icon: 'fa-user',          title: '首页 — Hero 区域' },
+    { id: 'skills',      prefix: ['skills'],    icon: 'fa-chart-bar',     title: '首页 — 技能概览' },
+    { id: 'resume',      prefix: ['resume'],    icon: 'fa-file-alt',      title: '简历 — 标题区域',
       exclude: ['resume.edit', 'resume.save', 'resume.cancel'] },
-    { prefix: ['exp'],       icon: 'fa-briefcase',     title: '简历 — 工作经历' },
-    { prefix: ['edu'],       icon: 'fa-graduation-cap',title: '简历 — 教育背景' },
-    { prefix: ['skill'],     icon: 'fa-code',          title: '简历 — 专业技能分类' },
-    { prefix: ['projects'],  icon: 'fa-folder-open',   title: '项目 — 标题' },
-    { prefix: ['project'],   icon: 'fa-cube',          title: '项目 — 卡片内容' },
-    { prefix: ['contact'],   icon: 'fa-envelope',      title: '联系 — 标题与信息',
+    { id: 'experience',  prefix: ['exp'],       icon: 'fa-briefcase',     title: '简历 — 工作经历' },
+    { id: 'education',   prefix: ['edu'],       icon: 'fa-graduation-cap',title: '简历 — 教育背景' },
+    { id: 'skill-cats',  prefix: ['skill'],     icon: 'fa-code',          title: '简历 — 专业技能分类' },
+    { id: 'projects',    prefix: ['projects'],  icon: 'fa-folder-open',   title: '项目 — 标题' },
+    { id: 'project-cards', prefix: ['project'], icon: 'fa-cube',          title: '项目 — 卡片内容' },
+    { id: 'contact',     prefix: ['contact'],   icon: 'fa-envelope',      title: '联系 — 标题与信息',
       exclude: ['contact.form.name', 'contact.form.email', 'contact.form.msg',
                 'contact.form.submit', 'contact.form.placeholder.name',
                 'contact.form.placeholder.email', 'contact.form.placeholder.msg',
                 'contact.form.success', 'contact.form.error'] },
-    { prefix: ['contact.form'], icon: 'fa-pen',        title: '联系 — 表单字段' },
-    { prefix: ['footer'],    icon: 'fa-copyright',     title: '页脚' },
-    { prefix: ['page'],      icon: 'fa-info-circle',   title: '页面通用' },
-    // 编辑模式按钮文字
-    { prefix: ['resume.edit', 'resume.save', 'resume.cancel'], icon: 'fa-edit', title: '编辑模式按钮',
-      flatten: true },
+    { id: 'contact-form', prefix: ['contact.form'], icon: 'fa-pen',       title: '联系 — 表单字段' },
+    { id: 'footer',      prefix: ['footer'],    icon: 'fa-copyright',     title: '页脚' },
+    { id: 'page-general', prefix: ['page'],     icon: 'fa-info-circle',   title: '页面通用' },
+    { id: 'edit-buttons', prefix: ['resume.edit', 'resume.save', 'resume.cancel'],
+      icon: 'fa-edit', title: '编辑模式按钮', flatten: true },
   ];
 
   const dict = I18N.dictionary;
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deduped = [...new Set(keys)];
 
     html += `
-      <section class="admin-section" id="sec-${group.title.replace(/[^\w]/g, '_')}">
+      <section class="admin-section" id="sec-${group.id}">
         <div class="admin-section-header">
           <h2><i class="fas ${group.icon}"></i> ${group.title}</h2>
           <span style="font-size:var(--text-xs);color:var(--color-text-muted);">${deduped.length} 项</span>
@@ -120,8 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const zh = dict[key]?.zh || '';
       const en = dict[key]?.en || '';
       const saved = localStorage.getItem('edit_' + key);
-      const currentZh = saved !== null ? saved : zh;
-      const currentEn = saved !== null ? saved : en;
+      const currentVal = saved !== null ? saved : en;
       const isLong = fieldType(key, zh, en) === 'textarea';
 
       const label = readableLabel(key);
@@ -133,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="field-key">${key}</span>
           </label>
           ${isLong
-            ? `<textarea data-key="${key}" data-original="${zh.replace(/"/g, '&quot;')}" placeholder="${zh}">${currentEn}</textarea>`
-            : `<input type="text" data-key="${key}" data-original="${zh.replace(/"/g, '&quot;')}" placeholder="${zh}" value="${currentEn}">`
+            ? `<textarea data-key="${key}" data-original="${zh.replace(/"/g, '&quot;')}" placeholder="${zh}">${currentVal}</textarea>`
+            : `<input type="text" data-key="${key}" data-original="${zh.replace(/"/g, '&quot;')}" placeholder="${zh}" value="${currentVal}">`
           }
           <div class="field-desc">默认: ${zh.length > 50 ? zh.slice(0, 50) + '…' : zh}</div>
         </div>
