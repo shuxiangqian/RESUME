@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="[你的名字] - 项目作品展示">
+  <title>[你的名字] - 项目</title>
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">[名字]</a>
+      <nav class="navbar-menu">
+        <a href="index.html" class="navbar-link" data-i18n="nav.home">首页</a>
+        <a href="resume.html" class="navbar-link" data-i18n="nav.resume">简历</a>
+        <a href="projects.html" class="navbar-link" data-i18n="nav.projects">项目</a>
+        <a href="contact.html" class="navbar-link" data-i18n="nav.contact">联系</a>
+      </nav>
+      <div class="navbar-actions">
+        <button class="lang-btn" aria-label="Switch language">EN</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 页面标题 -->
+    <section class="page-header">
+      <div class="container">
+        <h1 data-i18n="projects.title">项目作品</h1>
+        <p data-i18n="projects.subtitle">我参与和开发的部分项目</p>
+      </div>
+    </section>
+
+    <!-- 项目列表 -->
+    <section class="section">
+      <div class="container">
+        <div class="projects-grid">
+          <!-- 项目 1 -->
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-globe"></i></div>
+            <h3 data-i18n="project.1.title">项目名称 A</h3>
+            <p data-i18n="project.1.desc">这是一个全栈项目，使用 React + Node.js 构建，实现了某某功能。</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> <span data-i18n="project.demo">在线演示</span></a>
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> <span data-i18n="project.code">源代码</span></a>
+            </div>
+          </div>
+
+          <!-- 项目 2 -->
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3 data-i18n="project.2.title">项目名称 B</h3>
+            <p data-i18n="project.2.desc">一个移动端优先的响应式网站，使用 Vue.js 和 Tailwind CSS 开发。</p>
+            <div class="project-tags">
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Firebase</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> <span data-i18n="project.demo">在线演示</span></a>
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> <span data-i18n="project.code">源代码</span></a>
+            </div>
+          </div>
+
+          <!-- 项目 3 -->
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
+            <h3 data-i18n="project.3.title">项目名称 C</h3>
+            <p data-i18n="project.3.desc">基于 Python 的数据可视化工具，帮助团队分析用户行为数据。</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">D3.js</span>
+              <span class="project-tag">Flask</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> <span data-i18n="project.demo">在线演示</span></a>
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> <span data-i18n="project.code">源代码</span></a>
+            </div>
+          </div>
+
+          <!-- 项目 4 -->
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-terminal"></i></div>
+            <h3 data-i18n="project.4.title">项目名称 D</h3>
+            <p data-i18n="project.4.desc">开源的 CLI 工具，用于自动化工作流和项目脚手架搭建。</p>
+            <div class="project-tags">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Commander</span>
+              <span class="project-tag">Open Source</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> <span data-i18n="project.demo">在线演示</span></a>
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> <span data-i18n="project.code">源代码</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-social">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:your-email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p data-i18n="footer.copyright">© 2026 [你的名字] · 保留所有权利</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
