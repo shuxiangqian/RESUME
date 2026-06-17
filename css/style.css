@@ -1007,3 +1007,201 @@ p {
 .placeholder-content p {
   font-style: italic;
 }
+
+/* --- 头像上传（首页 Hero） --- */
+.hero-avatar {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hero-avatar:hover::after {
+  content: '📷';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#avatarInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* --- 头像上传（简历页标题区） --- */
+.page-header-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  margin: 0 auto var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-4xl);
+  color: var(--color-primary);
+  border: 3px solid var(--color-primary);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.page-header-avatar:hover::after {
+  content: '📷';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  color: #fff;
+}
+
+#avatarInputResume {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* --- 页面标题操作按钮 --- */
+.page-header-actions {
+  margin-top: var(--space-6);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+/* --- 编辑模式 --- */
+.edit-mode-active [contenteditable="true"] {
+  border-radius: var(--radius-sm);
+  transition: outline var(--transition-fast), background var(--transition-fast);
+}
+
+.edit-mode-active [contenteditable="true"]:hover {
+  outline: 2px dashed var(--color-primary);
+  background-color: rgba(37, 99, 235, 0.04);
+  cursor: text;
+}
+
+.edit-mode-active [contenteditable="true"]:focus {
+  outline: 2px solid var(--color-primary);
+  background-color: rgba(37, 99, 235, 0.06);
+}
+
+.edit-mode-active .timeline-item,
+.edit-mode-active .edu-card,
+.edit-mode-active .skill-category {
+  position: relative;
+}
+
+.edit-mode-active .timeline-item::after {
+  content: '✎ 可编辑';
+  position: absolute;
+  top: -4px;
+  right: 0;
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+/* --- 编辑模式保存提示 --- */
+.edit-toast {
+  position: fixed;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.edit-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- 浮动管理按钮 --- */
+.admin-fab {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.admin-fab:hover {
+  background-color: var(--color-primary-hover);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  color: #fff;
+}
+
+.admin-fab-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.admin-fab:hover .admin-fab-tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .admin-fab {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    width: 48px;
+    height: 48px;
+    font-size: var(--text-lg);
+  }
+}
