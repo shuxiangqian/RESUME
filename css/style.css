@@ -1177,25 +1177,6 @@ p {
   color: #fff;
 }
 
-.admin-fab-tooltip {
-  position: absolute;
-  right: calc(100% + 12px);
-  background: var(--color-text);
-  color: var(--color-bg);
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-fast);
-}
-
-.admin-fab:hover .admin-fab-tooltip {
-  opacity: 1;
-}
-
 @media (max-width: 767px) {
   .admin-fab {
     bottom: var(--space-4);
